@@ -58,22 +58,39 @@ export const Main = styled.main`
 
 export const Container = styled.div`
   .left-circle, .right-circle {
-    background: white;
-    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
-    height: 20rem;
-    width: 20rem;
     position: absolute;
-    border-radius: 50%;
     z-index: 1;
-  }
+    transition: 1s;
+    &:hover {
+      transform: scale(1.1);
+    }
 
-  .left-circle {
-    top: 5%;
-    right: 15%;
+    .circle {
+      position: relative;
+      width: 25rem;
+      height: 25rem;
+    }
+
+    .ball {
+      background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+      height: 20rem;
+      width: 20rem;
+      border-radius: 50%;
+      position: absolute;
+      transition-duration: 1000ms;
+      transition-timing-function: ease-out;
+      top: 0%;
+      left: 0%;
+    }
   }
 
   .right-circle {
-    bottom: 5%;
-    left: 10%;
+    top: 1%;
+    right: 10%;
+  }
+
+  .left-circle {
+    bottom: 2%;
+    left: 4%;
   }
 `;

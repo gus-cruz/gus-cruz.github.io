@@ -10,4 +10,6 @@ export const ItSelf = styled.div`
   transition-timing-function: ease-out;
   pointer-events: none;
   z-index: 2;
+  top: 50%;
+  left: 50%;
 `;

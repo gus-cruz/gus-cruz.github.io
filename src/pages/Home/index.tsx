@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 
 import Cursor, { cursorCore } from '../../components/Cursor';
 
@@ -10,9 +10,22 @@ import {
 } from './style';
 
 const Home: React.FC = () => {
+  
+  function avoidCursor(cursor: React.MouseEvent<HTMLDivElement>){
+    let x = cursor.clientX * 90 / window.innerWidth + "%";
+    let y = cursor.clientY * 90 / window.innerHeight + "%";
+
+    const leftBall = document.querySelector(`.left-circle .circle .ball`);
+    leftBall?.setAttribute("style", `top: ${y}; left: ${x}; transform: translate(-${x}, -${y})`);
+
+    const rightBall = document.querySelector(`.right-circle .circle .ball`);
+    rightBall?.setAttribute("style", `top: ${y}; left: ${x}; transform: translate(-${x}, -${y})`);
+  }
+
   return (
     <Container onMouseMove={e => {
-      cursorCore(e);
+      cursorCore(e)
+      avoidCursor(e)
     }}>
       <Main>
         <div className="glass">
@@ -47,8 +60,16 @@ const Home: React.FC = () => {
         </div>
       </Main>
 
-      <div className="left-circle"></div>
-      <div className="right-circle"></div>
+      <div className="left-circle">
+        <div className="circle">
+          <div className="ball"></div>
+        </div>
+      </div>
+      <div className="right-circle">
+        <div className="circle">
+          <div className="ball"></div>
+        </div>
+      </div>
       <Cursor className="cursor"/>
     </Container>
   );
