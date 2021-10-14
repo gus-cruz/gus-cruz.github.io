@@ -1,23 +1,9 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  background: ${props => props.theme.colors.background};
+export const Main = styled.main`
+  background: linear-gradient(to right top, #65dfc9, #6cdbeb);
   color: ${props => props.theme.colors.text.regular};
 
-  .cursor {
-
-    animation: cursorPulsing .5 infinite alternate;
-  }
-
-  @keyframes cursorPulsing{
-    from {
-      transform: scale(1);
-    }
-
-    to {
-      transform: scale(.7)
-    }
-  }
 
   height: 100vh;
   display: flex;
@@ -25,6 +11,69 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   
-  p { margin-top: 16px; cursor: default; }
-  .fire { transition: all 0.2s ease-in; width: 160px; &:hover { transform: scale(1.1); } }
+  .glass {
+    min-height: 80vh;
+    width: 60%;
+    background: white;
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    backdrop-filter: blur(2rem);
+    z-index: 3;
+    border-radius: 2rem;
+
+    display: flex;
+    .dashboard {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+      border-radius: 2rem;
+
+      .me {
+        text-align: center;
+
+        img {
+          width: 88px;
+          height: 88px;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    .content {
+      flex: 2;
+      .skills {
+        .skill {
+          img {
+            width: 105px;
+            height: 105px;
+            border-radius: 2rem;
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const Container = styled.div`
+  .left-circle, .right-circle {
+    background: white;
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+    height: 20rem;
+    width: 20rem;
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  .left-circle {
+    top: 5%;
+    right: 15%;
+  }
+
+  .right-circle {
+    bottom: 5%;
+    left: 10%;
+  }
 `;

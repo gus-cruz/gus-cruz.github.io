@@ -1,22 +1,55 @@
-import React from 'react';
-
-import Fire from '../../assets/delete-me.png';
+import React, {useEffect, useState} from 'react';
 
 import Cursor, { cursorCore } from '../../components/Cursor';
 
+import Javascript from '../../assets/javascript.png';
+import Me from '../../assets/me.jpg';
+
 import {
-  Container
+  Container, Main
 } from './style';
 
 const Home: React.FC = () => {
-  const cursor = document.querySelector('.cursor');
-
   return (
-    <Container onMouseMove={e => cursorCore(e)}>
+    <Container onMouseMove={e => {
+      cursorCore(e);
+    }}>
+      <Main>
+        <div className="glass">
+          <div className="dashboard">
+            <div className="me">
+              <img src={Me} alt="Gus Cruz"/>
+              <h3>Gustavo Cruz</h3>
+              <p>Web & Mobile Developer</p>
+            </div>
+            <div className="pages">
+              <div className="page">
+                <h2>Skills</h2>
+              </div>
+            </div>
+          </div>
+          <div className="content">
+            <div className="status">
+              <h1>My Skills</h1>
+            </div>
+            <div className="skills">
+              <div className="skill">
+                <img src={Javascript} alt="javascript"/>
+                <div className="skill-info">
+                  <h2>Javascript</h2>
+                  <p>Advanced</p>
+                  <div className="progress"></div>
+                </div>
+                <div className="percentage"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Main>
+
+      <div className="left-circle"></div>
+      <div className="right-circle"></div>
       <Cursor className="cursor"/>
-      {/* let's gooo! 🔥 */}
-      <img className="fire" src={Fire} />
-      <p>GUS TEMPLATE</p>
     </Container>
   );
 }

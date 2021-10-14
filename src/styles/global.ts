@@ -10,6 +10,10 @@ export default createGlobalStyle`
     text-decoration: none;
   }
 
+  body {
+    /* overflow: hidden; */
+  }
+
   button {
     cursor: pointer;
   }
